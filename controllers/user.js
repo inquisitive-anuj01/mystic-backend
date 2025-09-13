@@ -1,6 +1,5 @@
-import User from "../schema/userSchema.js"
+import User from "../schema/userSchema.js";
 import { sendMail } from "../utils/mailer.js";
-
 
 export const registerUser = async (req, res) => {
   try {
@@ -21,40 +20,61 @@ export const registerUser = async (req, res) => {
       <p>This person has registered for healing via Mystic Healers Landing page.</p>
     `;
     // user/customer email
+    // user/customer email
     const userMsg = `
-      <h2>Thank you for joining our Healing Community</h2>
-      <p>Dear ${name},</p>
+  <table width="100%" cellspacing="0" cellpadding="0" border="0" 
+    style="background: url('https://res.cloudinary.com/dzvwqhzgf/image/upload/v1757405404/Untitled_design_58_udmbsi.png') no-repeat center center; 
+           background-size: cover; 
+           padding: 40px; 
+           font-family: Arial, sans-serif; 
+           color: #fff;">
+    <tr>
+      <td align="center">
+        <table width="600" cellspacing="0" cellpadding="0" border="0" 
+          style="background: rgba(0,0,0,0.6); padding: 20px; border-radius: 12px; color: #fff;">
+          <tr>
+            <td>
+              <p>Dear ${name},</p>
 
-      <p>
-        Thank you for sharing your email with us and taking the first step toward your healing journey!
-      </p>
+              <p>
+                Thank you for sharing your email with us and taking the first step toward your healing journey!
+              </p>
 
-      <p>
-        We’re creating a space where you’ll be able to connect with trusted spiritual healers and explore powerful modalities like 
-        <b>Reiki, Pranic Healing, Akashic Records, Past Life Regression, Tarot, and more.</b>
-      </p>
+              <p>
+                We’re creating a space where you’ll be able to connect with trusted spiritual healers and explore powerful modalities like 
+                <b>Reiki, Pranic Healing, Akashic Records, Past Life Regression, Tarot, and more.</b>
+              </p>
 
-      <p>
-        Whether you’re seeking <b>clarity, peace, or emotional balance</b>, our upcoming platform will give you access to sessions designed to help you heal, grow, and transform.
-      </p>
+              <p>
+                Whether you’re seeking <b>clarity, peace, or emotional balance</b>, our upcoming platform will give you access to sessions designed to help you heal, grow, and transform.
+              </p>
 
-      <p>
-        You’ll be among the first to know the moment our website goes live so you can book your healing sessions with ease. Until then, stay tuned for updates from us!
-      </p>
+              <p>
+                You’ll be among the first to know the moment our website goes live so you can book your healing sessions with ease. Until then, stay tuned for updates from us!
+              </p>
 
-      <br/>
-      <p><b>With Love and Gratitude,<br/>The Mystic Healers Team</b></p>
-    `;
+              <br/>
+              <p><b>With Love and Gratitude,<br/>The Mystic Healers Team</b></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+`;
 
     // Send both emails in parallel
     await Promise.all([
-      sendMail(`anujgupta1532003@gmail.com`, "New Healing Registration", adminMsg),
-      sendMail(email, "Thank you for joining our Healing Community", userMsg)
+      sendMail(
+        `anujgupta1532003@gmail.com`,
+        "New Healing Registration",
+        adminMsg
+      ),
+      sendMail(email, "Thank you for joining our Healing Community", userMsg),
     ]);
 
     // Respond immediately
     res.status(201).json({ message: "Registration successful!" });
-
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
