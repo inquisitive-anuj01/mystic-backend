@@ -12,9 +12,7 @@ export const registerUser = async (req, res) => {
     // Save to DB
     const user = await User.create({ name, email });
 
-    // Admin Email
-// Admin Email
-const adminMsg = `
+    const adminMsg = `
   <div style="font-family: Arial, sans-serif; background:#f9f9f9; color:#333; padding:20px;">
     
     <!-- Header -->
@@ -43,8 +41,7 @@ const adminMsg = `
   </div>
 `;
 
-
-const userMsg = `
+  const userMsg = `
   <div style="
       font-family: Arial, sans-serif;
       background:#ffffff;
@@ -53,31 +50,10 @@ const userMsg = `
       margin:0;
       font-size:15px;
       line-height:1.6;
-      position:relative;
-      overflow:hidden;
-      text-align:center;
+      text-align:left;
+      max-width:700px;
+      margin:0 auto;
   ">
-
-    <!-- Background Logo (center, behind text) -->
-    <div style="
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%, -50%);
-        width:100%;
-        height:100%;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        z-index:0;
-    ">
-      <img src="https://res.cloudinary.com/dzvwqhzgf/image/upload/v1757405404/Untitled_design_58_udmbsi.png"
-           alt="The Mystic Healers Logo"
-           style="opacity:0.08; max-width:500px; width:70%; height:auto;" />
-    </div>
-
-    <!-- Message Body (on top of logo) -->
-    <div style="position:relative; z-index:1; text-align:left; max-width:700px; margin:0 auto;">
       <p>Dear ${name},</p>
 
       <p>
@@ -99,15 +75,8 @@ const userMsg = `
 
       <br/>
       <p><b>With Love and Gratitude,<br/>The Mystic Healers Team</b></p>
-    </div>
-
   </div>
 `;
-
-
-
-
-
 
     // Send both emails in parallel
     await Promise.all([
