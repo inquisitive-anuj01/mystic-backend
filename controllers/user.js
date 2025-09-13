@@ -19,49 +19,63 @@ export const registerUser = async (req, res) => {
       <p><b>Email:</b> ${email}</p>
       <p>This person has registered for healing via Mystic Healers Landing page.</p>
     `;
-    // user/customer email
-    // user/customer email
-    const userMsg = `
+
+
+const userMsg = `
   <table width="100%" cellspacing="0" cellpadding="0" border="0" 
-    style="background: url('https://res.cloudinary.com/dzvwqhzgf/image/upload/v1757405404/Untitled_design_58_udmbsi.png') no-repeat center center; 
-           background-size: cover; 
-           padding: 40px; 
-           font-family: Arial, sans-serif; 
-           color: #fff;">
+    style="background-color:#ffffff; padding:40px; font-family: Arial, sans-serif; color:#333;">
     <tr>
       <td align="center">
         <table width="600" cellspacing="0" cellpadding="0" border="0" 
-          style="background: rgba(0,0,0,0.6); padding: 20px; border-radius: 12px; color: #fff;">
+          style="position: relative; padding: 30px; border-radius: 12px; background: rgba(0,0,0,0.7); color:#fff;">
+          
+          <!-- Watermark Logo in Background -->
           <tr>
-            <td>
-              <p>Dear ${name},</p>
+            <td style="position: relative; text-align: left;">
+              <div style="
+                background: url('https://res.cloudinary.com/dzvwqhzgf/image/upload/v1757405404/Untitled_design_58_udmbsi.png') no-repeat center center;
+                background-size: 150px; /* smaller logo */
+                opacity: 0.08;          /* faint watermark */
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%; height: 100%;
+                z-index: 0;">
+              </div>
 
-              <p>
-                Thank you for sharing your email with us and taking the first step toward your healing journey!
-              </p>
+              <!-- Actual Text Content -->
+              <div style="position: relative; z-index: 1;">
+                <p>Dear ${name},</p>
 
-              <p>
-                We’re creating a space where you’ll be able to connect with trusted spiritual healers and explore powerful modalities like 
-                <b>Reiki, Pranic Healing, Akashic Records, Past Life Regression, Tarot, and more.</b>
-              </p>
+                <p>
+                  Thank you for sharing your email with us and taking the first step toward your healing journey!
+                </p>
 
-              <p>
-                Whether you’re seeking <b>clarity, peace, or emotional balance</b>, our upcoming platform will give you access to sessions designed to help you heal, grow, and transform.
-              </p>
+                <p>
+                  We’re creating a space where you’ll be able to connect with trusted spiritual healers and explore powerful modalities like 
+                  <b>Reiki, Pranic Healing, Akashic Records, Past Life Regression, Tarot, and more.</b>
+                </p>
 
-              <p>
-                You’ll be among the first to know the moment our website goes live so you can book your healing sessions with ease. Until then, stay tuned for updates from us!
-              </p>
+                <p>
+                  Whether you’re seeking <b>clarity, peace, or emotional balance</b>, our upcoming platform will give you access to sessions designed to help you heal, grow, and transform.
+                </p>
 
-              <br/>
-              <p><b>With Love and Gratitude,<br/>The Mystic Healers Team</b></p>
+                <p>
+                  You’ll be among the first to know the moment our website goes live so you can book your healing sessions with ease. Until then, stay tuned for updates from us!
+                </p>
+
+                <br/>
+                <p><b>With Love and Gratitude,<br/>The Mystic Healers Team</b></p>
+              </div>
             </td>
           </tr>
+
         </table>
       </td>
     </tr>
   </table>
 `;
+
 
     // Send both emails in parallel
     await Promise.all([
