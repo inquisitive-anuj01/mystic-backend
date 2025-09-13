@@ -1,6 +1,7 @@
 import User from "../schema/userSchema.js"
 import { sendMail } from "../utils/mailer.js";
 
+
 export const registerUser = async (req, res) => {
   try {
     const { name, email } = req.body;
@@ -19,19 +20,36 @@ export const registerUser = async (req, res) => {
       <p><b>Email:</b> ${email}</p>
       <p>This person has registered for healing via Mystic Healers Landing page.</p>
     `;
-
-    // User Email
+    // user/customer email
     const userMsg = `
-      <h2>Thank You for Your Interest!</h2>
+      <h2>Thank you for joining our Healing Community</h2>
       <p>Dear ${name},</p>
-      <p>Thank you for showing interest in our healing process. We will get in touch with you shortly!</p>
-      <p>Warm Regards,<br/>Mystic Healers Team</p>
+
+      <p>
+        Thank you for sharing your email with us and taking the first step toward your healing journey!
+      </p>
+
+      <p>
+        We’re creating a space where you’ll be able to connect with trusted spiritual healers and explore powerful modalities like 
+        <b>Reiki, Pranic Healing, Akashic Records, Past Life Regression, Tarot, and more.</b>
+      </p>
+
+      <p>
+        Whether you’re seeking <b>clarity, peace, or emotional balance</b>, our upcoming platform will give you access to sessions designed to help you heal, grow, and transform.
+      </p>
+
+      <p>
+        You’ll be among the first to know the moment our website goes live so you can book your healing sessions with ease. Until then, stay tuned for updates from us!
+      </p>
+
+      <br/>
+      <p><b>With Love and Gratitude,<br/>The Mystic Healers Team</b></p>
     `;
 
     // Send both emails in parallel
     await Promise.all([
       sendMail(`anujgupta1532003@gmail.com`, "New Healing Registration", adminMsg),
-      sendMail(email, "Thank You for Registering!", userMsg)
+      sendMail(email, "Thank you for joining our Healing Community", userMsg)
     ]);
 
     // Respond immediately
