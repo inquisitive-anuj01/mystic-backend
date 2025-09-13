@@ -13,12 +13,36 @@ export const registerUser = async (req, res) => {
     const user = await User.create({ name, email });
 
     // Admin Email
-    const adminMsg = `
-      <h2>New Registration for Healing</h2>
+// Admin Email
+const adminMsg = `
+  <div style="font-family: Arial, sans-serif; background:#f9f9f9; color:#333; padding:20px;">
+    
+    <!-- Header -->
+    <div style="text-align:center; padding:15px; background:#4B0082; color:#fff; border-radius:6px;">
+      <h2 style="margin:0;">✨ New Healing Registration ✨</h2>
+    </div>
+    
+    <!-- Body -->
+    <div style="margin-top:20px; font-size:15px; line-height:1.6;">
+      <p>Hello <b>Sagar Banerjee</b>,</p>
+      
+      <p>A new user has just registered for healing through the <b>Mystic Healers Landing Page</b>.  
+      Here are the details:</p>
+      
       <p><b>Name:</b> ${name}</p>
       <p><b>Email:</b> ${email}</p>
-      <p>This person has registered for healing via Mystic Healers Landing page.</p>
-    `;
+      
+      <p style="margin-top:20px;">Please reach out to them if necessary, or keep this record for future sessions.</p>
+    </div>
+    
+    <!-- Footer -->
+    <div style="margin-top:30px; text-align:center; font-size:13px; color:#666;">
+      <p>— Mystic Healers Admin Notification System —</p>
+    </div>
+    
+  </div>
+`;
+
 
 const userMsg = `
   <div style="font-family: Arial, sans-serif; background:#ffffff; color:#333; padding:0; margin:0;">
