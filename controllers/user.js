@@ -20,51 +20,44 @@ export const registerUser = async (req, res) => {
       <p>This person has registered for healing via Mystic Healers Landing page.</p>
     `;
 
-
 const userMsg = `
-  <table width="100%" cellspacing="0" cellpadding="0" border="0" 
-    style="background-color:#ffffff; padding:40px; font-family: Arial, sans-serif; color:#333;">
-    <tr>
-      <td align="center">
-        <table width="600" cellspacing="0" cellpadding="0" border="0" 
-          style="background-color:#ffffff; border-radius:12px; padding:30px; 
-                 background-image: url('https://res.cloudinary.com/dzvwqhzgf/image/upload/v1757405404/Untitled_design_58_udmbsi.png');
-                 background-repeat: no-repeat;
-                 background-position: center center;
-                 background-size: 120px; /* smaller logo */">
-          
-          <tr>
-            <td style="color:#333; font-size:15px; line-height:1.6;">
-              
-              <p>Dear ${name},</p>
+  <div style="font-family: Arial, sans-serif; background:#ffffff; color:#333; padding:0; margin:0;">
 
-              <p>
-                Thank you for sharing your email with us and taking the first step toward your healing journey!
-              </p>
+    <!-- Banner with Logo -->
+    <div style="width:100%; background:#f4f4f4; text-align:center; padding:20px 0;">
+      <img src="https://res.cloudinary.com/dzvwqhzgf/image/upload/v1757405404/Untitled_design_58_udmbsi.png" 
+           alt="The Mystic Healers Logo" 
+           style="max-width:150px; height:auto;" />
+    </div>
 
-              <p>
-                We’re creating a space where you’ll be able to connect with trusted spiritual healers and explore powerful modalities like 
-                <b>Reiki, Pranic Healing, Akashic Records, Past Life Regression, Tarot, and more.</b>
-              </p>
+    <!-- Message Body -->
+    <div style="padding:30px; font-size:15px; line-height:1.6;">
+      <p>Dear ${name},</p>
 
-              <p>
-                Whether you’re seeking <b>clarity, peace, or emotional balance</b>, our upcoming platform will give you access to sessions designed to help you heal, grow, and transform.
-              </p>
+      <p>
+        Thank you for sharing your email with us and taking the first step toward your healing journey!
+      </p>
 
-              <p>
-                You’ll be among the first to know the moment our website goes live so you can book your healing sessions with ease. Until then, stay tuned for updates from us!
-              </p>
+      <p>
+        We’re creating a space where you’ll be able to connect with trusted spiritual healers and explore powerful modalities like 
+        <b>Reiki, Pranic Healing, Akashic Records, Past Life Regression, Tarot, and more.</b>
+      </p>
 
-              <br/>
-              <p><b>With Love and Gratitude,<br/>The Mystic Healers Team</b></p>
+      <p>
+        Whether you’re seeking <b>clarity, peace, or emotional balance</b>, our upcoming platform will give you access to sessions designed to help you heal, grow, and transform.
+      </p>
 
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+      <p>
+        You’ll be among the first to know the moment our website goes live so you can book your healing sessions with ease. Until then, stay tuned for updates from us!
+      </p>
+
+      <br/>
+      <p><b>With Love and Gratitude,<br/>The Mystic Healers Team</b></p>
+    </div>
+
+  </div>
 `;
+
 
 
 
