@@ -17,7 +17,7 @@ export const registerUser = async (req, res) => {
     
     <!-- Header -->
     <div style="text-align:center; padding:15px; background:#4B0082; color:#fff; border-radius:6px;">
-      <h2 style="margin:0;">✨ New Healing Registration ✨</h2>
+      <h2 style="margin:0;"> New Healing Registration </h2>
     </div>
     
     <!-- Body -->
@@ -41,7 +41,7 @@ export const registerUser = async (req, res) => {
   </div>
 `;
 
-  const userMsg = `
+    const userMsg = `
   <div style="
       font-family: Arial, sans-serif;
       background:#ffffff;
@@ -81,7 +81,7 @@ export const registerUser = async (req, res) => {
     // Send both emails in parallel
     await Promise.all([
       sendMail(
-        `anujgupta1532003@gmail.com`,
+        `operations@themystichealers.com`,
         "New Healing Registration",
         adminMsg
       ),
