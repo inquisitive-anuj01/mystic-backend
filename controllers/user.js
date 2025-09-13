@@ -55,25 +55,29 @@ const userMsg = `
       line-height:1.6;
       position:relative;
       overflow:hidden;
+      text-align:center;
   ">
 
-    <!-- Background Logo (centered, behind text) -->
-    <img src="https://res.cloudinary.com/dzvwqhzgf/image/upload/v1757405404/Untitled_design_58_udmbsi.png"
-         alt="The Mystic Healers Logo"
-         style="
-            position:absolute;
-            top:50%;
-            left:50%;
-            transform:translate(-50%, -50%);
-            opacity:0.08;
-            max-width:400px;
-            width:80%;
-            height:auto;
-            z-index:0;
-         " />
+    <!-- Background Logo (center, behind text) -->
+    <div style="
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        width:100%;
+        height:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        z-index:0;
+    ">
+      <img src="https://res.cloudinary.com/dzvwqhzgf/image/upload/v1757405404/Untitled_design_58_udmbsi.png"
+           alt="The Mystic Healers Logo"
+           style="opacity:0.08; max-width:500px; width:70%; height:auto;" />
+    </div>
 
     <!-- Message Body (on top of logo) -->
-    <div style="position:relative; z-index:1;">
+    <div style="position:relative; z-index:1; text-align:left; max-width:700px; margin:0 auto;">
       <p>Dear ${name},</p>
 
       <p>
@@ -99,6 +103,7 @@ const userMsg = `
 
   </div>
 `;
+
 
 
 
