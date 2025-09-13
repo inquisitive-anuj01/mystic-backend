@@ -88,7 +88,7 @@ const userMsg = `
     // Send both emails in parallel
     await Promise.all([
       sendMail(
-        `anujgupta1532003@gmail.com`,
+        `sagar.banerjee035@gmail.com`,
         "New Healing Registration",
         adminMsg
       ),
