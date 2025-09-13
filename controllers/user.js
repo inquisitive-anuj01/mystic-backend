@@ -45,17 +45,35 @@ const adminMsg = `
 
 
 const userMsg = `
-  <div style="font-family: Arial, sans-serif; background:#ffffff; color:#333; padding:0; margin:0;">
+  <div style="
+      font-family: Arial, sans-serif;
+      background:#ffffff;
+      color:#333;
+      padding:40px;
+      margin:0;
+      font-size:15px;
+      line-height:1.6;
+      position:relative;
+  ">
 
-    <!-- Banner with Logo -->
-    <div style="width:100%; background:#f4f4f4; text-align:center; padding:20px 0;">
-      <img src="https://res.cloudinary.com/dzvwqhzgf/image/upload/v1757405404/Untitled_design_58_udmbsi.png" 
-           alt="The Mystic Healers Logo" 
-           style="max-width:150px; height:auto;" />
+    <!-- Background Logo -->
+    <div style="
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        opacity:0.08;
+        z-index:0;
+        text-align:center;
+        width:100%;
+    ">
+      <img src="https://res.cloudinary.com/dzvwqhzgf/image/upload/v1757405404/Untitled_design_58_udmbsi.png"
+           alt="The Mystic Healers Logo"
+           style="max-width:300px; height:auto;" />
     </div>
 
     <!-- Message Body -->
-    <div style="padding:30px; font-size:15px; line-height:1.6;">
+    <div style="position:relative; z-index:1;">
       <p>Dear ${name},</p>
 
       <p>
@@ -88,7 +106,7 @@ const userMsg = `
     // Send both emails in parallel
     await Promise.all([
       sendMail(
-        `sagar.banerjee035@gmail.com`,
+        `anujgupta1532003@gmail.com`,
         "New Healing Registration",
         adminMsg
       ),
