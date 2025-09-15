@@ -61,11 +61,9 @@ export const registerUser = async (req, res) => {
       email,
       "Thank you for joining our Healing Community",
       userMsg
-    ).catch((err) => console.error("Mail sending failed:", err));
+    );
 
     res.status(201).json({ message: "Registration successful!" });
-
-    
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
