@@ -13,7 +13,6 @@ export const registerUser = async (req, res) => {
     // Save to DB
     const user = await User.create({ name, email });
 
-    res.status(201).json({ message: "Registration successful!" });
 
     const userMsg = `
       <div style="
@@ -52,10 +51,9 @@ export const registerUser = async (req, res) => {
       </div>
     `;
 
-setImmediate(() => {
-      sendMail(email, "Thank you for joining our Healing Community", userMsg)
-        .catch(err => console.error("Mail sending failed:", err));
-    });
+await sendMail(email, "Thank you for joining our Healing Community", userMsg);
+
+    res.status(201).json({ message: "Registration successful!" });
 
 
   } catch (error) {
