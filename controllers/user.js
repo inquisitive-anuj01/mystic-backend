@@ -3,16 +3,17 @@ import { sendMail } from "../utils/mailer.js";
 
 export const registerUser = async (req, res) => {
   try {
-    const { name, email } = req.body;
+    const { name, email, phone, city } = req.body;
 
     // Validate
-    if (!name || !email) {
-      return res.status(400).json({ message: "Name and Email required" });
+    if (!name || !email || !phone || !city) {
+      return res.status(400).json({ message: "All fields are required" });
     }
 
     // Save to DB
-    const user = await User.create({ name, email });
+    const user = await User.create({ name, email, phone, city });
 
+    res.status(201).json({ message: "Registration successful!" });
 
     const userMsg = `
       <div style="
@@ -51,11 +52,20 @@ export const registerUser = async (req, res) => {
       </div>
     `;
 
-await sendMail(email, "Thank you for joining our Healing Community", userMsg);
+    // setImmediate(() => {
+    //       sendMail(email, "Thank you for joining our Healing Community", userMsg)
+    //         .catch(err => console.error("Mail sending failed:", err));
+    //     });
+
+    await sendMail(
+      email,
+      "Thank you for joining our Healing Community",
+      userMsg
+    ).catch((err) => console.error("Mail sending failed:", err));
 
     res.status(201).json({ message: "Registration successful!" });
 
-
+    
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
