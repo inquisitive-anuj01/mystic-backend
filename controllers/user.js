@@ -12,9 +12,6 @@ export const registerUser = async (req, res) => {
 
     // Save to DB
     const user = await User.create({ name, email, phone, city });
-
-    res.status(201).json({ message: "Registration successful!" });
-
     const userMsg = `
       <div style="
           font-family: Arial, sans-serif;
@@ -57,13 +54,11 @@ export const registerUser = async (req, res) => {
     //         .catch(err => console.error("Mail sending failed:", err));
     //     });
 
-    await sendMail(
-      email,
-      "Thank you for joining our Healing Community",
-      userMsg
-    );
+await sendMail(email, "Thank you for joining our Healing Community", userMsg);
 
     res.status(201).json({ message: "Registration successful!" });
+
+    
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
